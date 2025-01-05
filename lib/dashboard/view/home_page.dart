@@ -21,12 +21,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<JournalEntry> _journalEntries = [];
 
   Future<void> _loadJournalEntries() async {
     final journalEntriesBox = Hive.box<JournalEntry>('journals');
     setState(() {
-      _journalEntries = journalEntriesBox.values.toList();
     });
   }
 
@@ -145,7 +143,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: Stack(
         children: [
-          // Bottom-right floating action button
+
           Positioned(
             bottom: 50,
             right: 16,

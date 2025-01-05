@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:health_journal/utils/styles.dart';
 class CustomButton extends StatelessWidget {
   final Color? textColor;
@@ -47,12 +45,12 @@ class CustomButton extends StatelessWidget {
             ),
           )
               : Text(
-            text!,
-            style: style ?? AppTextStyles.headerStyle.copyWith(
-              color: textColor ?? const Color(0xffFFFFFF),
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            )
+              text!,
+              style: style ?? AppTextStyles.headerStyle.copyWith(
+                color: textColor ?? const Color(0xffFFFFFF),
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              )
           ),
         ),
       ),

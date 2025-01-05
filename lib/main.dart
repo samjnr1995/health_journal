@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:health_journal/provider/health_metrics_provider.dart';
 import 'package:health_journal/provider/journal_provider.dart';
 import 'package:health_journal/provider/message_provider.dart';
-import 'package:health_journal/splash/view/splash.dart';
+import 'package:health_journal/routes/route.dart';
 import 'package:health_journal/utils/colors.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
@@ -55,7 +55,8 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: AppColors.defaultBlue),
                 useMaterial3: true,
               ),
-              home: const SplashScreen()
+            initialRoute: RouteManager.splash,
+            onGenerateRoute: RouteManager.generateRoute,
           );
         },
       ),

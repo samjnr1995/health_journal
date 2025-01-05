@@ -27,7 +27,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     _pageController.dispose();
     super.dispose();
   }
-
+//here this function check if user has already seen the onboarding screen so we can hide it
   void _completeOnboarding(BuildContext context) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('hasSeenOnboarding', true);
@@ -140,7 +140,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         return '';
     }
   }
-
+// using switch case to return a particular onboarding message, don/t forget index in dart starts from 0
   String _getDescription(int index) {
     final messageProvider = Provider.of<MessageProvider>(context, listen: false);
     switch (index) {

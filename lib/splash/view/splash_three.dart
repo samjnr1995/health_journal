@@ -15,7 +15,7 @@ class SplashScreenThree extends StatefulWidget {
 }
 
 class _SplashScreenThreeState extends State<SplashScreenThree> {
-  int _countdown = 6; // Start the countdown at 6 seconds
+  int _countdown = 5; // Start the countdown at 6 seconds
 
   @override
   void initState() {

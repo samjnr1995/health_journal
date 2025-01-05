@@ -120,8 +120,8 @@ class HistoryScreen extends StatelessWidget {
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
-                      // Add logic for editing if required
-                      Navigator.pop(context);
+                      provider.updateEntry(index, entry);
+                      //Navigator.pop(context);
                     },
                     icon: Icon(Icons.edit),
                     label: Text("Edit"),

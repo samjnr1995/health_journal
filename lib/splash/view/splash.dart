@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:health_journal/routes/route.dart';
 import 'package:health_journal/splash/view/splash_two.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,15 +28,9 @@ class _SplashScreenState extends State<SplashScreen> {
     final prefs = await SharedPreferences.getInstance();
     final hasSeenOnboarding = prefs.getBool('hasSeenOnboarding') ?? false;
     if (!hasSeenOnboarding) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const OnboardingPage()),
-      );
+      Navigator.pushReplacementNamed(context, RouteManager.onboarding);
     } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const SplashScreenTwo()),
-      );
+      Navigator.pushReplacementNamed(context, RouteManager.splashTwo);
     }
   }
 

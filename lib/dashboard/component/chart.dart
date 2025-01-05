@@ -1,4 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
@@ -20,23 +21,23 @@ class _MoodTrendGraphState extends State<MoodTrendGraph> {
     final xAxisLabels = _getFormattedDates(widget.entries);
 
     return SizedBox(
-      height: 200, // Adjust height of the graph
+      height: 200.h,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: LineChart(
           LineChartData(
             gridData: FlGridData(
-              show: false, // Disable grid lines
+              show: false,
             ),
             titlesData: FlTitlesData(
               rightTitles:AxisTitles(
-                sideTitles: SideTitles(showTitles: false), // Hide Y-axis numbers
+                sideTitles: SideTitles(showTitles: false),
               ) ,
               topTitles: AxisTitles(
-                sideTitles: SideTitles(showTitles: false), // Hide Y-axis numbers
+                sideTitles: SideTitles(showTitles: false),
               ),
               leftTitles: AxisTitles(
-                sideTitles: SideTitles(showTitles: true), // Hide Y-axis numbers
+                sideTitles: SideTitles(showTitles: true),
               ),
               bottomTitles: AxisTitles(
                 sideTitles: SideTitles(
@@ -53,7 +54,7 @@ class _MoodTrendGraphState extends State<MoodTrendGraph> {
               ),
             ),
             borderData: FlBorderData(
-              show: false, // Disable border lines
+              show: false,
             ),
             minX: 0,
             maxX: moodSpots.isNotEmpty ? moodSpots.length - 1.toDouble() : 1,
@@ -98,7 +99,7 @@ class _MoodTrendGraphState extends State<MoodTrendGraph> {
     );
   }
 }
-
+// this function converts mood from String to double for spot generation
 List<FlSpot> _generateMoodSpots(List<JournalEntry> entries) {
   final moodMapping = {
     "Happy": 5.0,
@@ -120,7 +121,7 @@ List<FlSpot> _generateMoodSpots(List<JournalEntry> entries) {
     },
   );
 }
-
+//this function takes the first seven dates and format it using intl
 List<String> _getFormattedDates(List<JournalEntry> entries) {
   final limitedEntries = entries.take(7).toList();
   return limitedEntries.map((e) => DateFormat('MMM dd').format(e.date)).toList();

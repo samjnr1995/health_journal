@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:health_journal/shared/reusables/button.dart';
 import 'package:health_journal/shared/reusables/text_field.dart';
 import 'package:health_journal/utils/colors.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +7,7 @@ import '../../models/journal_model.dart';
 import '../../provider/health_metrics_provider.dart';
 import '../../provider/journal_provider.dart';
 import '../../provider/message_provider.dart';
+import '../../shared/reusables/custom_button.dart';
 import '../../splash/view/splash_three.dart';
 import '../../utils/styles.dart';
 import '../component/moodDateButton.dart';
@@ -201,7 +201,7 @@ class _JournalingScreenState extends State<JournalingScreen> {
                     data: _textController,
                     onChanged: (value) {},
                     validator: (value) {
-                      if (value!.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Required field.';
                       } else if (value.length < 3) {
                         return 'Journal entry is too short';
@@ -209,10 +209,11 @@ class _JournalingScreenState extends State<JournalingScreen> {
                       return null;
                     },
                     maxlines: 8,
-                    maxlength: 300,
+                    maxlength: 1000,
                     hint: 'Write your thoughts...',
                     type: TextInputType.text,
                   ),
+
                   SizedBox(height: 20.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
